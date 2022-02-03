@@ -36,7 +36,7 @@ return (
                         <div className="tableWrapperHeader">
                             <h3 className="innerHeader">User list</h3>
 
-                            <Link to= "/adduser" className="addUser">
+                            <Link to="/adduser" className="addUser">
                             <button className="addButton">Add new</button>
                             </Link>
                         </div>
