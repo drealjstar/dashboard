@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {useDispatch, useSelector} from 'react-redux'
 import {getUsers} from '../Redux/actions';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./table.css";
 
 function Table() {
@@ -36,7 +36,7 @@ return (
                         <div className="tableWrapperHeader">
                             <h3 className="innerHeader">User list</h3>
 
-                            <Link to="/adduser" className="addUser">
+                            <Link to= "/adduser" className="addUser">
                             <button className="addButton">Add new</button>
                             </Link>
                         </div>
@@ -51,9 +51,9 @@ return (
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
-																{data.map(d => {
-																	return(
-																	<tr>
+									{data.map(d => {
+									return(
+									<tr>
                                     <td>{d.id}</td>
                                     <td>{d.name}</td>
                                     <td>{d.username}</td>
@@ -62,8 +62,8 @@ return (
                                     <td><button className="orange" >edit</button></td>
                                     <td><button className="red">delete</button></td>
                                 </tr>
-																)
-																})}
+								)
+								})}
                             </table>
                         </div>
                     </div>
