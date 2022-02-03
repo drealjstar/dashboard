@@ -1,18 +1,25 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
+import {useDispatch, useSelector} from 'react-redux'
+import {getUsers} from '../Redux/actions';
+import {Link} from "react-router-dom";
 import "./table.css";
 
 function Table() {
-	const [data, setData] = useState([
-		{
-			id: '1',
-			name:'Ade ayo', 
-	    userName: 'footbal',
-     email: 'hhhhh@gmqil.com',
-		 city: 'lagos'
-	}
+	const [data, setData] = useState([]);
 
-]);
-    return (
+const dispatch = useDispatch();
+const state = useSelector(store => store.userReducer)
+const {userData} = state;
+
+useEffect(() => {
+    dispatch(getUsers())
+}, [])
+
+useEffect(() => {
+    setData(userData)
+}, [userData])
+
+return (
         <div className="home">
             <div className="cover">
                 <div className="navBar">
@@ -28,7 +35,10 @@ function Table() {
                     <div className="tableWrapper">
                         <div className="tableWrapperHeader">
                             <h3 className="innerHeader">User list</h3>
+
+                            <Link to="/adduser" className="addUser">
                             <button className="addButton">Add new</button>
+                            </Link>
                         </div>
                         <div className="tableFlex">
                             <table>
@@ -46,10 +56,10 @@ function Table() {
 																	<tr>
                                     <td>{d.id}</td>
                                     <td>{d.name}</td>
-                                    <td>{d.userName}</td>
+                                    <td>{d.username}</td>
                                     <td>{d.email}</td>
-                                    <td>{d.city}</td>
-                                    <td><button className="orange">edit</button></td>
+                                    <td>{d.address.city}</td>
+                                    <td><button className="orange" >edit</button></td>
                                     <td><button className="red">delete</button></td>
                                 </tr>
 																)
