@@ -22,9 +22,7 @@
 .tableWrapper{
     min-height: 340px;
     width: 100%;
-    border: 3px;
-    border-style: ridge;
-    border-color: rgb(252, 245, 245);
+    border: 2px solid #dddddd;
     border-radius: 8px;
     margin-left: 10px;
     margin-right: 10px;
@@ -33,9 +31,8 @@
 .tableWrapperHeader{
     display: flex;
     justify-content: space-between;
-    border-bottom: 2px;
-    border-bottom-style: ridge;
-    border-bottom-color: rgb(252, 245, 245);
+    border-bottom: 2px solid #dddddd;
+
 }
 
 .addButton{
@@ -51,7 +48,7 @@
 
 .innerHeader{
     margin-left: 10px;
-    color:rgb(75, 73, 73); 
+    color: rgb(75, 71, 71);
     
 }
 
@@ -104,7 +101,7 @@ table {
     
   }
   
-  .orange{
+  .editButton{
       height: 30px;
       width: 80px;
       color: white;
@@ -113,7 +110,7 @@ table {
       border-radius: 5px;
   }
   
-  .red{
+  .deleteButton{
     height: 30px;
     width: 80px;
     color: white;

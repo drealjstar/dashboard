@@ -1,24 +1,29 @@
 import React, {useState, useEffect} from "react";
-import {useDispatch, useSelector} from 'react-redux'
-import {getUsers} from '../Redux/actions';
-import { Link } from "react-router-dom";
+import {useSelector} from 'react-redux'
+import { useHistory } from "react-router-dom";
 import "./table.css";
+import Modal from "./modal";
 
-function Table() {
-	const [data, setData] = useState([]);
 
-const dispatch = useDispatch();
-const state = useSelector(store => store.userReducer)
-const {userData} = state;
-
-useEffect(() => {
-    dispatch(getUsers())
-}, [])
+const Table = () => {
+    const [data, setData] = useState([]);
+    const [id, setId] = useState('')
+    const history = useHistory()
+    const state = useSelector(store => store.userReducer)
+    const {userData} = state;
+    const [show, setShow] = useState(false)
 
 useEffect(() => {
     setData(userData)
 }, [userData])
 
+
+const handleClick = (id) => {
+    setId(id)
+    setShow(true)
+}
+
+console.log(userData);
 return (
         <div className="home">
             <div className="cover">
@@ -36,13 +41,12 @@ return (
                         <div className="tableWrapperHeader">
                             <h3 className="innerHeader">User list</h3>
 
-                            <Link to="/adduser" className="addUser">
-                            <button className="addButton">Add new</button>
-                            </Link>
+                            <button className="addButton" onClick={() => history.push("/adduser")}>Add new</button>
                         </div>
                         <div className="tableFlex">
                             <table>
-                                <tr class='top-tr'>
+                                <thead>
+                                <tr className='top-tr'>
                                     <th>Id</th>
                                     <th>Name</th>
                                     <th>Username</th>
@@ -51,20 +55,26 @@ return (
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
-									{data.map(d => {
-									return(
-									<tr>
-                                    <td>{d.id}</td>
+                                </thead>
+                                <tbody>
+                                    {data && data.map((d, i) => {
+                                    return(
+
+                                    <tr key={d.id}>
+                                    <td>{i + 1}</td>
                                     <td>{d.name}</td>
                                     <td>{d.username}</td>
                                     <td>{d.email}</td>
-                                    <td>{d.address.city}</td>
-                                    <td><button className="orange" >edit</button></td>
-                                    <td><button className="red">delete</button></td>
+                                    <td>{d?.address?.city}</td>
+                                    <td><button className="editButton" >edit</button></td>
+                                    <td><button className="deleteButton"  onClick={()=> handleClick(d.id) }>delete</button></td>
                                 </tr>
-								)
-								})}
+                                )
+                                })}
+                                </tbody>
                             </table>
+
+                            <Modal id={id} show={show}   onClose={()=> setShow(false) }  />
                         </div>
                     </div>
                 </div>
