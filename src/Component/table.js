@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from "react";
-import {useSelector} from 'react-redux'
+import React, { useState, useEffect } from "react";
+import { useSelector } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import "./table.css";
 import Modal from "./modal";
@@ -10,21 +10,21 @@ const Table = () => {
     const [id, setId] = useState('')
     const history = useHistory()
     const state = useSelector(store => store.userReducer)
-    const {userData} = state;
+    const { userData } = state;
     const [show, setShow] = useState(false)
 
-useEffect(() => {
-    setData(userData)
-}, [userData])
+    useEffect(() => {
+        setData(userData)
+    }, [userData])
 
 
-const handleClick = (id) => {
-    setId(id)
-    setShow(true)
-}
+    const handleClick = (id) => {
+        setId(id)
+        setShow(true)
+    }
 
-console.log(userData);
-return (
+    console.log(userData);
+    return (
         <div className="home">
             <div className="cover">
                 <div className="navBar">
@@ -46,35 +46,35 @@ return (
                         <div className="tableFlex">
                             <table>
                                 <thead>
-                                <tr className='top-tr'>
-                                    <th>Id</th>
-                                    <th>Name</th>
-                                    <th>Username</th>
-                                    <th>Email</th>
-                                    <th>City</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
-                                </tr>
+                                    <tr className='top-tr'>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Username</th>
+                                        <th>Email</th>
+                                        <th>City</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
                                     {data && data.map((d, i) => {
-                                    return(
+                                        return (
 
-                                    <tr key={d.id}>
-                                    <td>{i + 1}</td>
-                                    <td>{d.name}</td>
-                                    <td>{d.username}</td>
-                                    <td>{d.email}</td>
-                                    <td>{d?.address?.city}</td>
-                                    <td><button className="editButton" >edit</button></td>
-                                    <td><button className="deleteButton"  onClick={()=> handleClick(d.id) }>delete</button></td>
-                                </tr>
-                                )
-                                })}
+                                            <tr key={d.id}>
+                                                <td>{i + 1}</td>
+                                                <td>{d.name}</td>
+                                                <td>{d.username}</td>
+                                                <td>{d.email}</td>
+                                                <td>{d?.address?.city}</td>
+                                                <td><button className="editButton" >edit</button></td>
+                                                <td><button className="deleteButton" onClick={() => handleClick(d.id)}>delete</button></td>
+                                            </tr>
+                                        )
+                                    })}
                                 </tbody>
                             </table>
 
-                            <Modal id={id} show={show}   onClose={()=> setShow(false) }  />
+                            <Modal id={id} show={show} onClose={() => setShow(false)} />
                         </div>
                     </div>
                 </div>

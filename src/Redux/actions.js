@@ -1,14 +1,14 @@
 import axios from 'axios';
-import {GET_USERS, ADD_USERS, DELETE_USER, EDIT_USER} from './actionTypes';
+import { GET_USERS, ADD_USERS, DELETE_USER, EDIT_USER } from './actionTypes';
 
 
 export const getUsers = () => dispatch => {
-axios.get('https://my-json-server.typicode.com/karolkproexe/jsonplaceholderdb/data').then(result => {
-    dispatch({
-        type: GET_USERS,
-        users: result.data
-    })
-}).catch(e => console.log(e))
+    axios.get('https://my-json-server.typicode.com/karolkproexe/jsonplaceholderdb/data').then(result => {
+        dispatch({
+            type: GET_USERS,
+            users: result.data
+        })
+    }).catch(e => console.log(e))
 }
 
 export const addUser = (newData) => dispatch => {

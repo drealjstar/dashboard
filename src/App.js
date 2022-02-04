@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
-import {useDispatch} from 'react-redux'
-import {getUsers} from './Redux/actions';
+import React, { useEffect } from "react";
+import { useDispatch } from 'react-redux'
+import { getUsers } from './Redux/actions';
 
 import Table from "./Component/table";
 import AddUser from "./Component/addUser";
@@ -12,16 +12,16 @@ const App = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(()=> {
+  useEffect(() => {
     dispatch(getUsers())
   }, [dispatch])
 
 
   return (
-      <BrowserRouter>
-       <div className="App">
-         <Switch>
-          
+    <BrowserRouter>
+      <div className="App">
+        <Switch>
+
           <Route exact path="/">
             <Table />
           </Route>
@@ -29,9 +29,9 @@ const App = () => {
             <AddUser />
           </Route>
         </Switch>
-        </div>
-      </BrowserRouter >
-    );
+      </div>
+    </BrowserRouter >
+  );
 }
 
 export default App;
