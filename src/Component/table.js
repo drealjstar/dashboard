@@ -23,7 +23,6 @@ const Table = () => {
         setShow(true)
     }
 
-    console.log(userData);
     return (
         <div className="home">
             <div className="cover">
@@ -66,7 +65,10 @@ const Table = () => {
                                                 <td>{d.username}</td>
                                                 <td>{d.email}</td>
                                                 <td>{d?.address?.city}</td>
-                                                <td><button className="editButton" >edit</button></td>
+                                                <td><button className="editButton" onClick={() => history.push({
+                                                    pathname: '/adduser',
+                                                    state: d
+                                                })} >edit</button></td>
                                                 <td><button className="deleteButton" onClick={() => handleClick(d.id)}>delete</button></td>
                                             </tr>
                                         )

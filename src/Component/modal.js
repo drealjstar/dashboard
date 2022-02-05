@@ -6,10 +6,12 @@ import "./modal.css";
 
 const Modal = ({show, onClose, id}) => {
     const dispatch = useDispatch();
+
    const handleDelete = () => {
         dispatch(deleteUser(id))
         onClose()
     }
+    
 return (
         <>
        {show && <div className="modal">

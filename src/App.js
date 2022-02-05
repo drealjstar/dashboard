@@ -25,9 +25,8 @@ const App = () => {
           <Route exact path="/">
             <Table />
           </Route>
-          <Route exact path="/adduser">
-            <AddUser />
-          </Route>
+          <Route exact path="/adduser"  render={(props) => <AddUser {...props}/>}/>
+           
         </Switch>
       </div>
     </BrowserRouter >

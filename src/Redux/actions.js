@@ -25,9 +25,9 @@ export const deleteUser = (id) => dispatch => {
 }
 
 
-export const updateUser = (id) => dispatch => {
+export const updateUser = (user) => dispatch => {
     dispatch({
         type: EDIT_USER,
-        id
+        user
     })
 }
