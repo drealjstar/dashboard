@@ -51,8 +51,8 @@ const Table = () => {
                                         <th>Username</th>
                                         <th>Email</th>
                                         <th>City</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
+                                        <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
