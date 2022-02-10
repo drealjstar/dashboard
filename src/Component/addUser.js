@@ -2,12 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom'
 import { v4 as uuid } from 'uuid';
-
-
 import "./addUser.css";
 import { addUser, updateUser } from '../Redux/actions';
-
-
 
 function AddUser() {
     const [email, setEmail] = useState('');
@@ -17,15 +13,12 @@ function AddUser() {
     const dispatch = useDispatch();
     const history = useHistory();
     const { location } = history;
+    const [username, setUsername] = useState('');
 
-    const [username, setUsername] = useState('')
     const handleName = e => setName(e.target.value);
     const handleEmail = e => setEmail(e.target.value)
     const handleCity = e => setCity(e.target.value)
     const handleUsername = e => setUsername(e.target.value)
-
-
-
 
     const cancel = () => history.push('/');
 
@@ -57,7 +50,6 @@ function AddUser() {
         const updatedData = { id: location.state.id, name, email, username, address: { city } };
         dispatch(updateUser(updatedData))
         history.push('/')
-
     }
     return (
         <div className="userDetails">
@@ -98,7 +90,6 @@ function AddUser() {
                                 <button className="submitButton"
                                     onClick={isEdit ? updateCurrentUser : addNewUser}>
                                     {isEdit ? 'Edit' : "submit"}</button>
-
                             </div>
                         </div>
                     </div>

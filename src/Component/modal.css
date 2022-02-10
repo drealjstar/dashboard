@@ -8,8 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
-}
+  }
 
 .modalContent{
 width: 300px;
@@ -34,12 +33,10 @@ border-bottom: 1px solid #eee;
 .modalTitle{
   margin-left: -200px;
   color: rgb(75, 71, 71);
-
 }
 
 .deleteComment{
  color: rgb(75, 71, 71);
-
 }
 
 .modalFooter{
@@ -60,7 +57,6 @@ border-bottom: 1px solid #eee;
   border: none;
   font-size: smaller;
   border-radius: 2px;
-
 }
 
 .delete{
@@ -69,7 +65,6 @@ color: white;
 border: none;
 font-size: smaller;
 border-radius: 2px;
-
 }
 
 

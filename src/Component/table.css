@@ -1,13 +1,11 @@
 .cover{
     width: 100%;
-    
-}
+    }
 
 .navBar{
     height: 30px;
     background-color: rgb(75, 73, 73);
-    
-}
+    }
 
 .header{
     margin-top: 40px;
@@ -32,7 +30,6 @@
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid #dddddd;
-
 }
 
 .addButton{
@@ -49,8 +46,7 @@
 .innerHeader{
     margin-left: 10px;
     color: rgb(75, 71, 71);
-    
-}
+    }
 
 .firstCircle,
 .secondCircle,
@@ -71,7 +67,6 @@
 h5{
     margin-top: -12px;
     color: rgb(158, 156, 156);
-
 }
 
 .tableFlex{
@@ -93,13 +88,11 @@ table {
     text-align: left;
     padding: 40px ;
     border-left: none;
-  
   }
   
   .top-tr {
     background-color: #dddddd;
-    
-  }
+    }
   
   .editButton{
       height: 30px;
